@@ -1,0 +1,360 @@
+:root {
+  --clr-primary-300: rgb(254, 52, 110, 87%);
+  --clr-primary-400: rgb(254, 52, 110, 100%);
+  --clr-primary-500: rgb(233, 46, 99, 100%);
+  --clr-neutral-100: rgb(255, 255, 255, 100%);
+  --clr-neutral-300: rgb(255, 255, 255, 75%);
+  --clr-neutral-500: rgb(255, 255, 255, 50%);
+  --clr-accent-400: rgb(56, 20, 96, 100%);
+  --clr-accent-200: rgb(56, 20, 96, 30%);
+
+  --fw-regular: 400;
+  --fw-semi-bold: 500;
+  --fw-bold: 700;
+
+  --ff-primary: "Be Vietnam Pro", sans-serif;
+
+  --fs-300: 0.8125rem;
+  --fs-400: 0.875rem;
+  --fs-500: 0.9375rem;
+  --fs-600: 1rem;
+  --fs-700: 1.5rem;
+  --fs-800: 2rem;
+  --fs-900: 2.5rem;
+
+  --size-100: 0.25rem;
+  --size-200: 0.5rem;
+  --size-300: 0.75rem;
+  --size-400: 1rem;
+  --size-500: 1.5rem;
+  --size-600: 2rem;
+  --size-700: 3rem;
+  --size-800: 4rem;
+  --size-900: 5rem;
+}
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+    2. Remove default margin
+  */
+* {
+  margin: 0;
+  color: hsl;
+}
+/*
+    3. Allow percentage-based heights in the application
+  */
+html,
+body {
+  height: 100%;
+}
+/*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--clr-accent-400);
+}
+/*
+    6. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+    7. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+    8. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+    9. Create a root stacking context
+  */
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* General Style */
+body {
+  display: grid;
+  place-items: center;
+  font-family: var(--ff-primary);
+  color: var(--clr-neutral-100);
+}
+
+p:not([class]) {
+  color: var(--clr-neutral-300);
+}
+
+a {
+  text-decoration: none;
+  color: var(--clr-neutral-100);
+}
+
+.button {
+  /* display: block; */
+  min-width: 60%;
+  background-color: var(--clr-primary-300);
+  border: 0;
+  padding: 1em 4em;
+  font-size: var(--fs-400);
+  line-height: 1;
+  color: var(--clr-neutral-100);
+  font-weight: var(--fw-bold);
+  border-radius: var(--size-200);
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+input:where([type="text"], [type="email"], [type="password"]) {
+  padding: var(--size-300) var(--size-400);
+  border-radius: var(--size-200);
+  font-size: var(--fs-300);
+  border: 0;
+  background: var(--clr-neutral-500);
+  color: black;
+}
+
+.button.btn-lg {
+  padding: 1em 6em;
+  font-size: var(--fs-600);
+  width: 100%;
+}
+
+.button[data-type="inverted"] {
+  color: var(--clr-primary-400);
+  background-color: var(--clr-neutral-100);
+}
+
+.button:hover,
+.button:focus-visible {
+  background-color: var(--clr-primary-400);
+}
+
+.button[data-type="inverted"]:hover,
+.button[data-type="inverted"]:focus-visible {
+  color: var(--clr-primary-400);
+  background-color: var(--clr-neutral-300);
+}
+
+.login {
+  display: flex;
+}
+
+/* MAIN */
+.login {
+  display: flex;
+  position: relative;
+  max-width: 100%;
+  min-height: 450px;
+  box-shadow: 0 0 10px 2px rgb(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.login::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-image: url("images/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(2px);
+}
+
+.login::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-color: var(--clr-accent-200);
+  overflow: hidden;
+}
+
+@media (min-width: 47em) {
+  .welcome-side {
+    border-radius: 0 var(--size-600) var(--size-600) 0;
+  }
+}
+
+@media (max-width: 30em) and (min-height: 30em) {
+  .login-content {
+    padding: unset;
+    margin-top: var(--size-900);
+  }
+}
+
+.welcome-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--size-500);
+  background-color: var(--clr-primary-300);
+  box-shadow: 2px 0 5px rgb(0, 0, 0, 0.5);
+}
+
+.login-content {
+  padding: var(--size-800);
+  z-index: 2;
+}
+
+@media (max-width: 47em) {
+  body {
+    display: block;
+  }
+
+  .login {
+    flex-direction: column-reverse;
+    height: 100vh;
+    justify-content: flex-end;
+    background-position: unset;
+  }
+
+  .welcome-side {
+    border-radius: var(--size-600) var(--size-600) 0 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .welcome__text {
+    display: none;
+  }
+
+  .login-content {
+    padding: var(--size-500);
+  }
+
+  .welcome-side {
+    padding-block: var(--size-300);
+  }
+
+  .button.btn-lg {
+    font-size: var(--fs-400);
+    width: 100%;
+  }
+}
+
+.welcome__text h2 {
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-600);
+}
+
+.welcome__text h1 {
+  font-weight: var(--fw-bold);
+}
+
+.welcome__text p {
+  max-width: 30ch;
+  font-size: var(--fs-300);
+}
+
+.signup__text {
+  margin-bottom: var(--size-100);
+  font-size: var(--fs-300);
+}
+
+form {
+  display: grid;
+  row-gap: var(--size-300);
+  flex-direction: column;
+}
+
+input:where([type="checkbox"]) {
+  margin-right: var(--size-100);
+}
+
+form .flex-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-300);
+}
+
+/* UTILITY */
+.bg-primary-400 {
+  background-color: var(--clr-primary-400);
+}
+
+.bg-primary-300 {
+  background-color: var(--clr-primary-300);
+}
+
+.bg-accent-400 {
+  background-color: var(--clr-primary-400);
+}
+
+.bg-accent-300 {
+  background-color: var(--clr-primary-300);
+}
+
+.text-neutral-100 {
+  color: var(--clr-neutral-100);
+}
+
+.text-neutral-300 {
+  color: var(--clr-neutral-300);
+}
+
+.text-center {
+  text-align: center;
+  margin-inline: auto;
+}
+
+.fw-bold {
+  font-weight: var(--fw-bold);
+}
+.fw-semi-bold {
+  font-weight: var(--fw-semi-bold);
+}
+
+.fw-regular {
+  font-weight: var(--fw-regular);
+}
+
+.fs-300 {
+  font-size: var(--fs-300);
+}
+.fs-400 {
+  font-size: var(--fs-400);
+}
+.fs-500 {
+  font-size: var(--fs-500);
+}
+
+.margin-bottom-400 {
+  margin-block-end: var(--size-400);
+}
